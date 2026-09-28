@@ -1,38 +1,315 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #111;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.page {
+  min-height: 100vh;
+  background: #111;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* NAVBAR */
+
+.navbar {
+  height: 80px;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  padding: 0 45px;
+  gap: 35px;
+}
+
+.logo img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #159cff;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 610px;
+  background-image: url("./hero-profile.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  margin-left: 5%;
+}
+
+.intro {
+  font-size: 19px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 7vw, 90px);
+  line-height: 0.95;
+  font-weight: 600;
+}
+
+.tagline {
+  margin-top: 25px;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 38px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #159cff;
+  border-radius: 30px;
+  padding: 9px 20px;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #159cff;
+  color: #050505;
+}
+
+/* ABOUT */
+
+.about,
+.contact {
+  min-height: 450px;
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+}
+
+.about {
+  background: #111;
+}
+
+.contact {
+  background: #080808;
+}
+
+.about > div,
+.contact > div {
+  max-width: 700px;
+}
+
+.section-label {
+  color: #159cff;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.about h2,
+.contact h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.about p:not(.section-label),
+.contact p:not(.section-label) {
+  color: #bbb;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+  height: 68px;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .navbar {
+    height: auto;
+    padding: 15px 25px;
+    gap: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .logo img {
+    width: 45px;
+    height: 45px;
   }
+
+  nav {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 650px;
+    background-position: 80% center;
+  }
+
+  .hero-content {
+    margin: 0 25px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .about,
+  .contact {
+    padding: 80px 25px;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 35px;
+  }
+}
+
+.contact {
+  min-height: 600px;
+  padding: 100px 10%;
+  background: #080808;
+  display: flex;
+  align-items: center;
+}
+
+.contact-container {
+  width: 100%;
+  max-width: 700px;
+}
+
+.contact h2 {
+  font-size: 45px;
+  margin-bottom: 35px;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 15px;
+  background: #111;
+  border: 1px solid #444;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #159cff;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.send-btn {
+  border: 1px solid #159cff;
+  border-radius: 30px;
+  padding: 10px 30px;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.send-btn:hover {
+  background: #159cff;
+  color: #050505;
+}
+
+.form-error {
+  color: #ff4d5a;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+.privacy-text {
+  margin-top: 20px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.form-error {
+  color: red;
+  margin-bottom: 18px;
+  font-size: 14px;
 }
